@@ -7,3 +7,6 @@ VisMale.raw
 - Sample dataset from GitHub user mattatz: https://github.com/mattatz/unity-volume-rendering (License: MIT)
 - The original file comes from Visible Human Project, National Library of Medicine
   Disclaimer: This version of the Visible Human Dataset does not reflect the most current/accurate data available from NLM.
+
+Segmented Heart Images
+- Sample dataset from video description: https://www.youtube.com/watch?v=BJoIexIvtGo

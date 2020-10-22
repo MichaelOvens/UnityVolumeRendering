@@ -1,2 +1,0 @@
-3D Slicer Segmentation tutorial: https://www.youtube.com/watch?v=BJoIexIvtGo
-Heart dataset linked in video description
