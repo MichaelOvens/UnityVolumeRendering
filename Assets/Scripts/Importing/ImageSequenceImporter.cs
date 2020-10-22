@@ -10,12 +10,13 @@ namespace UnityVolumeRendering
     /// </summary>
     public class ImageSequenceImporter : DatasetImporterBase
     {
-        private string directoryPath;
-        private string[] supportedImageTypes = new string[] 
+        public static List<string> supportedImageTypes = new List<string>
         {
-            "*.png",
-            "*.jpg",
+            ".png",
+            ".jpg",
         };
+
+        private string directoryPath;
 
         public ImageSequenceImporter(string directoryPath)
         {
@@ -49,7 +50,7 @@ namespace UnityVolumeRendering
 
             foreach (var type in supportedImageTypes)
             {
-                imagePaths.AddRange(Directory.GetFiles(directoryPath, type));
+                imagePaths.AddRange(Directory.GetFiles(directoryPath, "*" + type));
             }
 
             imagePaths.Sort();

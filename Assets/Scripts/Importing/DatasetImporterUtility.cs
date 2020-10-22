@@ -7,7 +7,8 @@ namespace UnityVolumeRendering
     {
         Unknown,
         Raw,
-        DICOM
+        DICOM,
+        ImageSequence
     }
 
     public class DatasetImporterUtility
@@ -28,6 +29,10 @@ namespace UnityVolumeRendering
             }
             else if (extension == ".dicom" || extension == ".dcm")
                 datasetType = DatasetType.DICOM;
+            else if (ImageSequenceImporter.supportedImageTypes.Contains(extension))
+            {
+                datasetType = DatasetType.ImageSequence;
+            }
             else
                 datasetType = DatasetType.Unknown;
 

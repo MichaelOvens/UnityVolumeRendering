@@ -32,6 +32,18 @@ namespace UnityVolumeRendering
                         }
                         break;
                     }
+                case DatasetType.ImageSequence:
+                    {
+                        ImageSequenceImporter importer = new ImageSequenceImporter(filePath);
+                        VolumeDataset dataset = importer.Import();
+
+                        if (dataset != null)
+                        {
+                            VolumeRenderedObject obj = VolumeObjectFactory.CreateObject(dataset);
+                        }
+
+                        break;
+                    }
             }
         }
     }
