@@ -20,7 +20,6 @@ namespace UnityVolumeRendering
         {
             basePath = EditorGUILayout.TextField("Base volume directory:", basePath);
             labelPath = EditorGUILayout.TextField("Label volume directory:", labelPath);
-            discardBlack = EditorGUILayout.Toggle("Discard black values", discardBlack);
 
             bool readyToImport = Directory.Exists(basePath) && Directory.Exists(labelPath);
 
