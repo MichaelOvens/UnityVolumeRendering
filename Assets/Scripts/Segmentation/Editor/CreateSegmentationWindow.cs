@@ -18,8 +18,8 @@ namespace UnityVolumeRendering
 
         private void OnGUI()
         {
-            basePath = EditorGUILayout.TextField("Base volume directory:", basePath);
-            labelPath = EditorGUILayout.TextField("Label volume directory:", labelPath);
+            GetDirectoryControl("Select Base Volume Directory", ref basePath);
+            GetDirectoryControl("Select Label Volume Directory", ref labelPath);
 
             bool readyToImport = Directory.Exists(basePath) && Directory.Exists(labelPath);
 
@@ -41,6 +41,24 @@ namespace UnityVolumeRendering
                     }
                 }
             }
+        }
+
+        private void GetDirectoryControl (string instructions, ref string path)
+        {
+            EditorGUILayout.BeginHorizontal();
+
+            if (GUILayout.Button(instructions))
+            {
+                string directory = EditorUtility.OpenFolderPanel("Select a folder to load", "", "");
+                if (Directory.Exists(directory))
+                {
+                    path = directory;
+                }
+            }
+
+            path = EditorGUILayout.TextField(path);
+
+            EditorGUILayout.EndHorizontal();
         }
     }
 }
