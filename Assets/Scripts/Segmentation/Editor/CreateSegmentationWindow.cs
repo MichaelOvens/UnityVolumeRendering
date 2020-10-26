@@ -36,7 +36,7 @@ namespace UnityVolumeRendering
                     GameObject segmentManager = new GameObject(baseVolume.datasetName + " Segment Manager");
                     foreach (var segment in segmentation.segments)
                     {
-                        VolumeRenderedObject obj = VolumeObjectFactory.CreateObject(segment.Value);
+                        VolumeRenderedObject obj = VolumeObjectFactory.CreateObject(segment.Value.dataset);
                         obj.transform.parent = segmentManager.transform;
                     }
                 }

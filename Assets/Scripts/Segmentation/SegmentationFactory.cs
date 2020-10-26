@@ -28,7 +28,7 @@ namespace UnityVolumeRendering
             }
 
             var labelToBaseMap = CreateLabelToBaseMapDictionary(baseVolume.data, labelVolume.data);
-            var segments = ConvertDensityMapsToVolumeDataset(labelToBaseMap);
+            var segments = ConvertDensityMapsToSegments(labelToBaseMap);
 
             var segmentation = new Segmentation()
             {
@@ -75,9 +75,9 @@ namespace UnityVolumeRendering
         /// <param name="labelValueToSegmentMap"></param>
         /// <param name="discardBlackData"></param>
         /// <returns></returns>
-        private Dictionary<int, VolumeDataset> ConvertDensityMapsToVolumeDataset (Dictionary<int, int[]> labelValueToSegmentMap)
+        private Dictionary<int, Segment> ConvertDensityMapsToSegments (Dictionary<int, int[]> labelValueToSegmentMap)
         {
-            Dictionary<int, VolumeDataset> segments = new Dictionary<int, VolumeDataset>();
+            Dictionary<int, Segment> segments = new Dictionary<int, Segment>();
 
             foreach (var pair in labelValueToSegmentMap)
             {
@@ -94,7 +94,13 @@ namespace UnityVolumeRendering
                 dataset.scaleY = (float)baseVolume.dimY / (float)baseVolume.dimX;
                 dataset.scaleZ = (float)baseVolume.dimZ / (float)baseVolume.dimX;
 
-                segments.Add(pair.Key, dataset);
+                Segment segment = new Segment()
+                {
+                    labelValue = pair.Key,
+                    dataset = dataset
+                };
+
+                segments.Add(pair.Key, segment);
             }
 
             return segments;

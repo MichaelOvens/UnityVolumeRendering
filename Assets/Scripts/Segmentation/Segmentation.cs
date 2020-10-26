@@ -5,6 +5,6 @@ namespace UnityVolumeRendering
     [System.Serializable]
     public class Segmentation
     {
-        public Dictionary<int, VolumeDataset> segments;
+        public Dictionary<int, Segment> segments;
     }
 }

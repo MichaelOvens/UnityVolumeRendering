@@ -1,6 +1,6 @@
 ﻿using UnityVolumeRendering;
 
-namespace UWA.VolumeViewer.Volumetrics.Segmentations
+namespace UnityVolumeRendering
 {
     [System.Serializable]
     public class Segment
